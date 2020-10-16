@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+      body {
+        background-color: black;
+        /* cursor: none; */
+      }
+      h1 {
+        color: #fff;
+      }
+      .cursor_item {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        top: 0;
+        left: 0;
+        margin: -50px 0 0 -50px;
+        transition: all 0.9s cubic-bezier(0.815, 0.02, 0.3, 1.005);
+      }
+      button {
+        font-size: 40px;
+        font-weight: bold;
+        background-color: #fff;
+        color: red;
+        padding: 30px 80px;
+        margin: 50px;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.815, 0.02, 0.3, 1.005);
+      }
+      button:hover {
+        background-color: red;
+        color: #fff;
+        padding: 100px 120px;
+      }
+    </style>
+    <script>
+      let cursor_item;
+      let h1;
+      let x = 0;
+      let y = 0;
+      let mouseX = 0;
+      let mouseY = 0;
+      let speed = 0.05;
+
+      window.onload = function () {
+        // 화면이 로드가 다 된 후에 실행
+        h1 = document.getElementsByTagName('h1')[0];
+        cursor_item = document.getElementsByClassName('cursor_item')[0];
+        window.addEventListener('click', mouseFunc, false);
+        function mouseFunc(e) {
+          x = e.clientX;
+          y = e.clientY;
+
+          h1.innerHTML = 'x: ' + x + ' y: ' + y;
+          // console.log(x, y); // mousex 값
+          cursor_item.style.transform = `translate(${x}px, ${y}px`;
+        }
+
+        // loop();
+      };
+      function loop() {
+        // 애니메이션을 끊어지지 않게 끔 만들어줌
+        // console.log(1); // 1이 무한으로 찍힘
+        // console.log(x, y); // 마우스 좌표가 계속 찍힘
+        mouseX += (x - mouseX) * speed;
+        mouseY += (y - mouseY) * speed;
+
+        // 점점 빠르게 움직이는 것을 볼 수 있음
+        // 자이로 센서를 붙이면 모바일에서도 가능
+        // h1.innerHTML = 'x: ' + x + ' mouseX: ' + mouseX; // x와 mouseX 값이 다름
+        // h1.innerHTML = 'y: ' + y + ' mouseY: ' + mouseY;
+
+        cursor_item.style.transform = `translate(${mouseX}px, ${mouseY}px`;
+        window.requestAnimationFrame(loop);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>test</h1>
+    <div class="cursor_item"></div>
+    <button>START</button>
+  </body>
+</html>

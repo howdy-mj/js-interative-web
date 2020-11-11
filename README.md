@@ -15,3 +15,7 @@
 ### 2. 02-fix-nothing
 
 - https://www.fixnothing.com/
+
+### 3. 03-allbirds
+
+- https://www.nytimes.com/paidpost/allbirds/the-view-from-above.html

@@ -29,3 +29,7 @@
 - https://www.cabletv.com/the-walking-dead
 
 - https://neal.fun/deep-sea/
+
+### 06-brunch
+
+- brunch 제목 효과 따라하기

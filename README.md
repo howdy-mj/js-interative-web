@@ -19,3 +19,7 @@
 ### 3. 03-allbirds
 
 - https://www.nytimes.com/paidpost/allbirds/the-view-from-above.html
+
+### 4. 04-mouse
+
+- mouse over/out 되었을 때 효과
